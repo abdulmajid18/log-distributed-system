@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option go_package = "github/abdulmajid18/proflog/api/v1";
+
+message Record {
+    bytes value = 1;
+    uint64 offset = 2;
+}

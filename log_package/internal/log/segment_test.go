@@ -6,12 +6,13 @@ import (
 	"log"
 	"testing"
 
-	api "github.com/abdulmajid18/LogPackage/api/v1"
+	api "github.com/abdulmajid18/proflog/api/v1"
+
 	"github.com/stretchr/testify/require"
 )
 
 func TestSegment(t *testing.T) {
-	path_dir := "/home/rozz/go/src/github.com/abdulmajid18/LogPackage/internal/log/"
+	path_dir := "/home/rozz/go/src/projects/log_distributed_system/log_package/internal/log"
 	dir, err := ioutil.TempDir(path_dir, "segment-test")
 	if err != nil {
 		log.Fatal(err)

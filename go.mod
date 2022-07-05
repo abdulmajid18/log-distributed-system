@@ -1,10 +1,12 @@
-module log-distributed-system
+module log_package
 
 go 1.18
 
 require (
+	github.com/abdulmajid18/proflog v0.0.0-20220705015905-9252e86292e1
 	github.com/stretchr/testify v1.8.0
 	github.com/tysonmote/gommap v0.0.2
+	google.golang.org/protobuf v1.28.0
 )
 
 require (
