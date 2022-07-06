@@ -6,7 +6,7 @@ import (
 	"log"
 	"testing"
 
-	api "github.com/abdulmajid18/log-distributed-system/api/v1"
+	api "github.com/abdulmajid18/log-distributed-system/log_package/api/v1"
 
 	"github.com/stretchr/testify/require"
 )
