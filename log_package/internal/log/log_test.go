@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	api "github.com/abdulmajid18/proflog/api/v1"
+	api "github.com/abdulmajid18/log-distributed-system/log_package/api/v1"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/proto"
 )
