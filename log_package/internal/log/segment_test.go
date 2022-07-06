@@ -6,7 +6,7 @@ import (
 	"log"
 	"testing"
 
-	api "github.com/abdulmajid18/log-distributed-system/log_package/api/v1"
+	v "github.com/abdulmajid18/log-distributed-system/log_package/api/v1"
 
 	"github.com/stretchr/testify/require"
 )
@@ -20,7 +20,7 @@ func TestSegment(t *testing.T) {
 	// f, err := os.Create("segment-test")
 	// defer os.RemoveAll(dir)
 
-	want := &api.Record{Value: []byte("hello world")}
+	want := &v.Record{Value: []byte("hello world")}
 
 	c := Config{}
 	c.Segment.MaxStoreBytes = 1024

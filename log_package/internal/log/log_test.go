@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	api "github.com/abdulmajid18/log-distributed-system/log_package/api/v1"
+	v "github.com/abdulmajid18/log-distributed-system/log_package/api/v1"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/proto"
 )
@@ -35,7 +35,7 @@ func TestLog(t *testing.T) {
 }
 
 func testAppendRead(t *testing.T, log *Log) {
-	append := &api.Record{
+	append := &v.Record{
 		Value: []byte("hello world")}
 	off, err := log.Append(append)
 	require.NoError(t, err)
@@ -53,7 +53,7 @@ func testOutOfRangeErr(t *testing.T, log *Log) {
 }
 
 func testInitExisting(t *testing.T, o *Log) {
-	append := &api.Record{
+	append := &v.Record{
 		Value: []byte("hello world"),
 	}
 	for i := 0; i < 3; i++ {
@@ -78,7 +78,7 @@ func testInitExisting(t *testing.T, o *Log) {
 }
 
 func testReader(t *testing.T, log *Log) {
-	append := &api.Record{
+	append := &v.Record{
 		Value: []byte("hello world"),
 	}
 	off, err := log.Append(append)
@@ -87,14 +87,14 @@ func testReader(t *testing.T, log *Log) {
 	reader := log.Reader()
 	b, err := ioutil.ReadAll(reader)
 	require.NoError(t, err)
-	read := &api.Record{}
+	read := &v.Record{}
 	err = proto.Unmarshal(b[lenWidth:], read)
 	require.NoError(t, err)
 	require.Equal(t, append.Value, read.Value)
 }
 
 func testTruncate(t *testing.T, log *Log) {
-	append := &api.Record{
+	append := &v.Record{
 		Value: []byte("hello world"),
 	}
 	for i := 0; i < 3; i++ {
