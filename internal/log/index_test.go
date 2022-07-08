@@ -11,7 +11,7 @@ import (
 
 func TestIndex(t *testing.T) {
 
-	dir := "/home/rozz/go/src/projects/log_distributed_system/log_package/internal/log"
+	dir := "/home/rozz/go/src/projects/log-distributed-system/internal/log"
 	f, err := ioutil.TempFile(dir, "index_test")
 	// f, err := os.Create("index_test")
 	// require.NoError(t, err)

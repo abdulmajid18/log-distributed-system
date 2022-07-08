@@ -11,7 +11,7 @@ import (
 	"strings"
 	"sync"
 
-	v "github.com/abdulmajid18/log-distributed-system/log_package/api/v1"
+	api "github.com/abdulmajid18/log-distributed-system/api/v1"
 )
 
 type Log struct {
@@ -82,7 +82,7 @@ func (l *Log) setup() error {
 	return nil
 }
 
-func (l *Log) Append(record *v.Record) (uint64, error) {
+func (l *Log) Append(record *api.Record) (uint64, error) {
 	l.mu.Lock()
 	defer l.mu.Unlock()
 	off, err := l.activeSegment.Append(record)
@@ -95,7 +95,7 @@ func (l *Log) Append(record *v.Record) (uint64, error) {
 	return off, err
 }
 
-func (l *Log) Read(off uint64) (*v.Record, error) {
+func (l *Log) Read(off uint64) (*api.Record, error) {
 	l.mu.Lock()
 	defer l.mu.Unlock()
 	var s *segment

@@ -6,13 +6,13 @@ import (
 	"log"
 	"testing"
 
-	v "github.com/abdulmajid18/log-distributed-system/log_package/api/v1"
+	api "github.com/abdulmajid18/log-distributed-system/api/v1"
 
 	"github.com/stretchr/testify/require"
 )
 
 func TestSegment(t *testing.T) {
-	path_dir := "/home/rozz/go/src/github.com/abdulmajid18/LogDistributedSystem/log_package/internal/log/"
+	path_dir := "/home/rozz/go/src/github.com/abdulmajid18/log-distributed-system/internal/log/"
 	dir, err := ioutil.TempDir(path_dir, "segment-test")
 	if err != nil {
 		log.Fatal(err)
@@ -20,7 +20,7 @@ func TestSegment(t *testing.T) {
 	// f, err := os.Create("segment-test")
 	// defer os.RemoveAll(dir)
 
-	want := &v.Record{Value: []byte("hello world")}
+	want := &api.Record{Value: []byte("hello world")}
 
 	c := Config{}
 	c.Segment.MaxStoreBytes = 1024
