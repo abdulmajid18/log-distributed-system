@@ -4,6 +4,7 @@ import (
 	"context"
 
 	api "github.com/abdulmajid18/log-distributed-system/api/v1"
+	"google.golang.org/grpc"
 )
 
 type CommitLog interface {
@@ -27,6 +28,16 @@ func newgrpcServer(config *Config) (srv *grpcServer, err error) {
 		Config: config,
 	}
 	return srv, nil
+}
+
+func NewGRPCServer(config *Config) (*grpc.Server, error) {
+	gsrv := grpc.NewServer()
+	srv, err := newgrpcServer(config)
+	if err != nil {
+		return nil, err
+	}
+	api.RegisterLogServer(gsrv, srv)
+	return gsrv, nil
 }
 
 func (s *grpcServer) Produce(ctx context.Context, req *api.ProduceRequest) (*api.ProduceResponse, error) {
