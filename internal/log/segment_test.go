@@ -4,6 +4,7 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
+	"os"
 	"testing"
 
 	api "github.com/abdulmajid18/log-distributed-system/api/v1"
@@ -18,7 +19,7 @@ func TestSegment(t *testing.T) {
 		log.Fatal(err)
 	}
 	// f, err := os.Create("segment-test")
-	// defer os.RemoveAll(dir)
+	defer os.RemoveAll(dir)
 
 	want := &api.Record{Value: []byte("hello world")}
 

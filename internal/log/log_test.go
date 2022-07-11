@@ -2,6 +2,7 @@ package log
 
 import (
 	"io/ioutil"
+	"os"
 	"testing"
 
 	api "github.com/abdulmajid18/log-distributed-system/api/v1"
@@ -21,10 +22,10 @@ func TestLog(t *testing.T) {
 	} {
 
 		t.Run(scenario, func(t *testing.T) {
-			path := "/home/rozz/go/src/projects/log-distributed-system/internal/log"
+			path := "/home/rozz/go/src/github.com/abdulmajid18/log-distributed-system/internal/log/"
 			dir, err := ioutil.TempDir(path, "store-test")
 			require.NoError(t, err)
-			// defer os.RemoveAll(dir)
+			defer os.RemoveAll(dir)
 			c := Config{}
 			c.Segment.MaxStoreBytes = 32
 			log, err := NewLog(dir, c)

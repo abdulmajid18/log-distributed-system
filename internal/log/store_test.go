@@ -14,7 +14,7 @@ var (
 )
 
 func TestStoreAppendRead(t *testing.T) {
-	f, err := ioutil.TempFile("/home/rozz/go/src/projects/log_distributed_system/log_package/internal/log", "store_append_read_test")
+	f, err := ioutil.TempFile("/home/rozz/go/src/github.com/abdulmajid18/log-distributed-system/internal/log/", "store_append_read_test")
 	// f, err := os.Create("store_append_read_test1")
 	require.NoError(t, err)
 	defer os.Remove(f.Name())
@@ -70,9 +70,9 @@ func testReadAt(t *testing.T, s *store) {
 }
 
 func TestStoreClose(t *testing.T) {
-	f, err := ioutil.TempFile("/home/rozz/go/src/github.com/abdulmajid18/LogDistributedSystem/log_package/internal/log/", "store_close_test")
+	f, err := ioutil.TempFile("/home/rozz/go/src/github.com/abdulmajid18/log-distributed-system/internal/log/", "store_close_test")
 	require.NoError(t, err)
-	// defer os.Remove(f.Name())
+	defer os.Remove(f.Name())
 	s, err := newStore(f)
 	require.NoError(t, err)
 

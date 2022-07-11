@@ -11,12 +11,12 @@ import (
 
 func TestIndex(t *testing.T) {
 
-	dir := "/home/rozz/go/src/projects/log-distributed-system/internal/log"
+	dir := "/home/rozz/go/src/github.com/abdulmajid18/log-distributed-system/internal/log/"
 	f, err := ioutil.TempFile(dir, "index_test")
 	// f, err := os.Create("index_test")
 	// require.NoError(t, err)
 	require.NoError(t, err)
-	// defer os.Remove(f.Name())
+	defer os.Remove(f.Name())
 
 	c := Config{}
 	c.Segment.MaxIndexBytes = 1024
