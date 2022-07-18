@@ -18,9 +18,34 @@ gencert:
 		-profile=server \
 		test/server-csr.json | cfssljson -bare server
 
+	#Generate client cert
+	cfssl gencert \
+		-ca=ca.pem \
+		-ca-key=ca-key.pem \
+		-config=test/ca-config.json \
+		-profile=client \
+		test/client-csr.json | cfssljson -bare client
+    # END: client
+
+    #Multi clients
+	cfssl gencert \
+		-ca=ca.pem \
+		-ca-key=ca-key.pem \
+		-config=test/ca-config.json \
+		-profile=client \
+		-cn="root" \
+		test/client-csr.json | cfssljson -bare root-client
+
+
+	cfssl gencert \
+		-ca=ca.pem \
+		-ca-key=ca-key.pem \
+		-config=test/ca-config.json \
+		-profile=client \
+		-cn="nobody" \
+		test/client-csr.json | cfssljson -bare nobody-client
 
 	mv *.pem *.csr ${CONFIG_PATH}
-    # END: client
 
 .PHONY: test
 test:

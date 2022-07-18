@@ -1,0 +1,18 @@
+{
+    "CN": "client",
+    "hosts": [""],
+    "key" : {
+      "algo" : "rsa",
+      "size" :2048
+    },
+    "names" : [
+      {
+        "C" :"GH",
+        "L" : "McCarthy Hills",
+        "ST" : "GREATER ACCRA",
+        "O" : "Majid",
+        "OU": "Majid Engineering"
+      }
+    ]
+  
+  }
