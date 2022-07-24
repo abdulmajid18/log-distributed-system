@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	github.com/casbin/casbin v1.9.1
+	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/stretchr/testify v1.8.0
 	github.com/tysonmote/gommap v0.0.2
 	google.golang.org/genproto v0.0.0-20210510173355-fb37daa5cd7a
